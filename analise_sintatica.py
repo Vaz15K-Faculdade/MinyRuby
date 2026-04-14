@@ -23,7 +23,7 @@ class AnaliseSintatica:
 
             self.ast = parser.prog()
 
-            if not self.erro_handler.tem_erros_sintaticos:
+            if not (self.erro_handler.tem_erros_sintaticos or self.erro_handler.tem_erros_lexicos):
                 self.logger.info("Análise sintática concluída com sucesso. AST gerada.")
             else:
                 self.logger.error("Análise sintática encontrou erros. AST pode estar incompleta ou incorreta.")
@@ -59,7 +59,7 @@ class AnaliseSintatica:
 
     def exportarAST_DOT(self, ast, nome_arquivo_dot: str):
         self.logger.info(f"Exportando AST para o formato DOT: {nome_arquivo_dot}")
-        if not ast or self.erro_handler.tem_erros_sintaticos: # Não exportar se AST é nula ou houve erro sintático
+        if not ast or self.erro_handler.houve_erro_fatal(): # Não exportar se AST é nula ou houve erro
             self.logger.warning("AST não disponível ou inválida para exportação DOT.")
             return
 
@@ -81,8 +81,8 @@ class AnaliseSintatica:
 
     def exportarAST_SVG(self, nome_arquivo_dot: str, nome_arquivo_svg: str):
         self.logger.info(f"Tentando exportar AST DOT para SVG: {nome_arquivo_svg}")
-        if self.erro_handler.tem_erros_sintaticos: # Não tentar se houve erro sintático
-            self.logger.warning("Não foi possível gerar SVG devido a erros sintáticos anteriores.")
+        if self.erro_handler.houve_erro_fatal(): # Não tentar se houve erro estrutural
+            self.logger.warning("Não foi possível gerar SVG devido a erros estruturais anteriores.")
             return
         try:
             subprocess.run(['dot', '-Tsvg', nome_arquivo_dot, '-o', nome_arquivo_svg], check=True, capture_output=True, text=True)

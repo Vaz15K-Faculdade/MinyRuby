@@ -40,8 +40,8 @@ class Compilador:
         # Fase 2: Análise Sintática
         self.logger.info("--- FASE: Análise Sintática ---")
         ast = self.analise_sintatica_mod.executarAnaliseSintatica(token_stream)
-        if self.erro_handler.tem_erros_sintaticos or not ast:
-            self.logger.error("Compilação interrompida devido a erros sintáticos.")
+        if self.erro_handler.houve_erro_fatal() or not ast:
+            self.logger.error("Compilação interrompida devido a erros em fases anteriores (Léxico/Sintático).")
             return False
         # Exportar AST (opcional, mas útil para depuração)
         nome_base = os.path.basename(self.nome_arquivo_fonte).rsplit('.', 1)[0]
