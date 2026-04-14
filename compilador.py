@@ -1,5 +1,6 @@
 # compilador.py
 import logging
+import os
 from erro import Erro
 from analise_lexica import AnaliseLexica
 from analise_sintatica import AnaliseSintatica
@@ -8,10 +9,14 @@ from geracao_tac import GeracaoTAC
 from geracao_llvm import GeracaoLLVM
 
 class Compilador:
-    def __init__(self, nome_arquivo_fonte: str):
+    def __init__(self, nome_arquivo_fonte: str, diretorio_saida: str = "out"):
         self.nome_arquivo_fonte = nome_arquivo_fonte
+        self.diretorio_saida = diretorio_saida
         self.logger = logging.getLogger(self.__class__.__name__) # Logger para a classe Compilador
         self.erro_handler = Erro()
+
+        # Criar o diretório de saída caso não exista
+        os.makedirs(self.diretorio_saida, exist_ok=True)
 
         # Instanciar as fases, passando o manipulador de erros
         self.analise_lexica_mod = AnaliseLexica(self.erro_handler)
@@ -39,9 +44,10 @@ class Compilador:
             self.logger.error("Compilação interrompida devido a erros sintáticos.")
             return False
         # Exportar AST (opcional, mas útil para depuração)
-        base_nome_arquivo = self.nome_arquivo_fonte.rsplit('.', 1)[0]
-        self.analise_sintatica_mod.exportarAST_DOT(ast, base_nome_arquivo + ".dot")
-        self.analise_sintatica_mod.exportarAST_SVG(base_nome_arquivo + ".dot", base_nome_arquivo + ".svg")
+        nome_base = os.path.basename(self.nome_arquivo_fonte).rsplit('.', 1)[0]
+        caminho_base_saida = os.path.join(self.diretorio_saida, nome_base)
+        self.analise_sintatica_mod.exportarAST_DOT(ast, caminho_base_saida + ".dot")
+        self.analise_sintatica_mod.exportarAST_SVG(caminho_base_saida + ".dot", caminho_base_saida + ".svg")
 
         # Fase 3: Análise Semântica
         self.logger.info("--- FASE: Análise Semântica ---")
@@ -66,9 +72,9 @@ class Compilador:
 
         self.logger.info("--- Compilação concluída com sucesso! ---")
         try:
-            with open(base_nome_arquivo + ".ll", "w", encoding='utf-8') as f:
+            with open(caminho_base_saida + ".ll", "w", encoding='utf-8') as f:
                 f.write(codigo_llvm)
-            self.logger.info(f"Código LLVM IR salvo em: {base_nome_arquivo}.ll")
+            self.logger.info(f"Código LLVM IR salvo em: {caminho_base_saida}.ll")
         except IOError as e:
             self.erro_handler.registrar_erro("Compilador",0,0,f"Erro ao salvar arquivo LLVM: {e}", "GERAL")
             return False
