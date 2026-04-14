@@ -1,4 +1,4 @@
-# Generated from MiniRuby.g4 by ANTLR 4.13.1
+# Generated from MiniRuby.g4 by ANTLR 4.13.2
 from antlr4 import *
 if "." in __name__:
     from .MiniRubyParser import MiniRubyParser
