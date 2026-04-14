@@ -1,7 +1,7 @@
 # analise_lexica.py
 import logging
 from antlr4 import FileStream, CommonTokenStream, Token
-from BASIQuinhoLexer import BASIQuinhoLexer # Arquivo gerado pelo ANTLR
+from MiniRubyLexer import MiniRubyLexer # Arquivo gerado pelo ANTLR
 from erro import Erro, CustomErrorListener # Do nosso arquivo erro.py
 
 class AnaliseLexica:
@@ -10,8 +10,8 @@ class AnaliseLexica:
         self.logger = logging.getLogger(self.__class__.__name__)
         self.lista_tokens = []
 
-    def _log_tokens(self, lexer: BASIQuinhoLexer):
-        temp_lexer = BASIQuinhoLexer(lexer.inputStream)
+    def _log_tokens(self, lexer: MiniRubyLexer):
+        temp_lexer = MiniRubyLexer(lexer.inputStream)
         temp_lexer.removeErrorListeners()
         
         token = temp_lexer.nextToken()
@@ -49,14 +49,14 @@ class AnaliseLexica:
         try:
             # LINHA CORRIGIDA ABAIXO (era 'utf-')
             input_stream = FileStream(nome_arquivo_fonte, encoding='utf-8')
-            lexer = BASIQuinhoLexer(input_stream)
+            lexer = MiniRubyLexer(input_stream)
             lexer.removeErrorListeners()
             lexer.addErrorListener(CustomErrorListener(self.erro_handler, "Analisador Léxico"))
 
             # Para logar os tokens, criamos um novo FileStream e um novo Lexer
             # para não consumir o 'lexer' principal que será usado pelo CommonTokenStream.
             log_input_stream = FileStream(nome_arquivo_fonte, encoding='utf-8') # Também verificar esta linha
-            log_lexer = BASIQuinhoLexer(log_input_stream)
+            log_lexer = MiniRubyLexer(log_input_stream)
             self._log_tokens(log_lexer)
 
             # O 'lexer' original ainda não foi consumido e seu input_stream está no início.

@@ -20,7 +20,7 @@ class Compilador:
         self.geracao_tac_mod = GeracaoTAC(self.erro_handler)
         self.geracao_llvm_mod = GeracaoLLVM(self.erro_handler)
 
-        self.logger.info(f"Compilador BASIQuinho inicializado para o arquivo: {nome_arquivo_fonte}")
+        self.logger.info(f"Compilador MiniRuby inicializado para o arquivo: {nome_arquivo_fonte}")
 
     def compilar(self):
         self.logger.info(f"--- Iniciando compilação de {self.nome_arquivo_fonte} ---")

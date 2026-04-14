@@ -2,7 +2,7 @@
 import logging
 import subprocess
 from antlr4 import CommonTokenStream
-from BASIQuinhoParser import BASIQuinhoParser # Arquivo gerado pelo ANTLR
+from MiniRubyParser import MiniRubyParser # Arquivo gerado pelo ANTLR
 from erro import Erro, CustomErrorListener # Do nosso arquivo erro.py
 
 class AnaliseSintatica:
@@ -17,7 +17,7 @@ class AnaliseSintatica:
             self.erro_handler.registrar_erro("Analisador Sintático", 0, 0, "Stream de tokens não fornecida.", tipo_erro="SINTATICO")
             return None
         try:
-            parser = BASIQuinhoParser(token_stream)
+            parser = MiniRubyParser(token_stream)
             parser.removeErrorListeners()
             parser.addErrorListener(CustomErrorListener(self.erro_handler, "Analisador Sintático"))
 
@@ -42,7 +42,7 @@ class AnaliseSintatica:
             label = parser_rules[no.getRuleIndex()]
         elif hasattr(no, 'symbol'): # É um nó terminal (token)
             texto_escapado = no.getText().replace('"', '\\"')
-            token_name = BASIQuinhoParser.symbolicNames[no.symbol.type]
+            token_name = MiniRubyParser.symbolicNames[no.symbol.type]
             label = f"{texto_escapado}\\n<Token: {token_name}>"
         else: # Outro tipo de nó (ex: ErrorNode)
             label = str(no.getText()).replace('"', '\\"')
@@ -64,10 +64,10 @@ class AnaliseSintatica:
             return
 
         try:
-            parser_temp = BASIQuinhoParser(None)
+            parser_temp = MiniRubyParser(None)
             parser_rules = parser_temp.ruleNames
 
-            dot_linhas = ['graph BASIQuinhoAST {', '  node [fontname="Arial" shape=box];', '  edge [arrowhead=none];']
+            dot_linhas = ['graph MiniRubyAST {', '  node [fontname="Arial" shape=box];', '  edge [arrowhead=none];']
             id_map = {}
             self._gerar_dot_recursivo(ast, parser_rules, id_map, dot_linhas)
             dot_linhas.append('}')
