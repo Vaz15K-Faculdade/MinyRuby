@@ -1,24 +1,26 @@
 grammar MiniRuby;
 
-prog: (stmt (NEWLINE | ';')*)* EOF;
+prog: (stmt NEWLINE*)* EOF;
 
-stmt: simpleStmt (NEWLINE | ';')*
-    | ifStmt (NEWLINE | ';')*
-    | whileStmt (NEWLINE | ';')*
+stmt
+    : simpleStmt NEWLINE*
+    | ifStmt NEWLINE*
+    | whileStmt NEWLINE*
     ;
 
-simpleStmt: printStmt
-          | assignStmt
-          ;
+simpleStmt
+    : printStmt
+    | assignStmt
+    ;
 
 printStmt: PUTS '('? exprList? ')'?;
 
 assignStmt: ID '=' expr;
 
-ifStmt: IF expr (NEWLINE | ';')* stmt* elsePart? END;
-elsePart: ELSE (NEWLINE | ';')* stmt*;
+ifStmt: IF expr NEWLINE* stmt* elsePart? END;
+elsePart: ELSE NEWLINE* stmt*;
 
-whileStmt: WHILE expr DO? (NEWLINE | ';')* stmt* END;
+whileStmt: WHILE expr DO? NEWLINE* stmt* END;
 
 exprList: expr (',' expr)*;
 
@@ -31,25 +33,27 @@ relExpr: addExpr ((LT | LE | GT | GE) addExpr)*;
 addExpr: mulExpr ((PLUS | MINUS) mulExpr)*;
 mulExpr: unaryExpr ((MUL | DIV) mulExpr)*;
 
-unaryExpr: NOT unaryExpr
-         | factor
-         ;
+unaryExpr
+    : NOT unaryExpr
+    | factor
+    ;
 
-factor: NUMBER
-      | STRING
-      | GETS '('? ')'?
-      | ID
-      | '(' expr ')'
-      ;
+factor
+    : NUMBER
+    | STRING
+    | GETS '('? ')'?
+    | ID
+    | '(' expr ')'
+    ;
 
 // Lexer Rules
-PUTS: 'puts' | 'escreva';
-GETS: 'gets.chomp' | 'gets' | 'leia';
-IF: 'if' | 'se';
-ELSE: 'else' | 'senao';
-END: 'end' | 'fim';
-WHILE: 'while' | 'enquanto';
-DO: 'do' | 'faca';
+PUTS: 'puts';
+GETS: 'gets.chomp' | 'gets';
+IF: 'if';
+ELSE: 'else';
+END: 'end';
+WHILE: 'while';
+DO: 'do';
 
 OR: '||' | 'or';
 AND: '&&' | 'and';

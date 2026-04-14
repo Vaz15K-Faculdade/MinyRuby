@@ -10,7 +10,7 @@ else:
 
 def serializedATN():
     return [
-        4,1,31,222,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,30,222,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,1,0,1,0,5,0,39,8,0,10,0,
         12,0,42,9,0,5,0,44,8,0,10,0,12,0,47,9,0,1,0,1,0,1,1,1,1,5,1,53,8,
@@ -29,65 +29,65 @@ def serializedATN():
         15,196,8,15,10,15,12,15,199,9,15,1,16,1,16,1,16,3,16,204,8,16,1,
         17,1,17,1,17,1,17,3,17,210,8,17,1,17,3,17,213,8,17,1,17,1,17,1,17,
         1,17,1,17,3,17,220,8,17,1,17,0,0,18,0,2,4,6,8,10,12,14,16,18,20,
-        22,24,26,28,30,32,34,0,5,2,0,1,1,29,29,1,0,16,17,1,0,18,21,1,0,22,
-        23,1,0,24,25,236,0,45,1,0,0,0,2,71,1,0,0,0,4,75,1,0,0,0,6,77,1,0,
-        0,0,8,87,1,0,0,0,10,91,1,0,0,0,12,110,1,0,0,0,14,123,1,0,0,0,16,
-        142,1,0,0,0,18,150,1,0,0,0,20,152,1,0,0,0,22,160,1,0,0,0,24,168,
-        1,0,0,0,26,176,1,0,0,0,28,184,1,0,0,0,30,192,1,0,0,0,32,203,1,0,
-        0,0,34,219,1,0,0,0,36,40,3,2,1,0,37,39,7,0,0,0,38,37,1,0,0,0,39,
-        42,1,0,0,0,40,38,1,0,0,0,40,41,1,0,0,0,41,44,1,0,0,0,42,40,1,0,0,
-        0,43,36,1,0,0,0,44,47,1,0,0,0,45,43,1,0,0,0,45,46,1,0,0,0,46,48,
-        1,0,0,0,47,45,1,0,0,0,48,49,5,0,0,1,49,1,1,0,0,0,50,54,3,4,2,0,51,
-        53,7,0,0,0,52,51,1,0,0,0,53,56,1,0,0,0,54,52,1,0,0,0,54,55,1,0,0,
-        0,55,72,1,0,0,0,56,54,1,0,0,0,57,61,3,10,5,0,58,60,7,0,0,0,59,58,
-        1,0,0,0,60,63,1,0,0,0,61,59,1,0,0,0,61,62,1,0,0,0,62,72,1,0,0,0,
-        63,61,1,0,0,0,64,68,3,14,7,0,65,67,7,0,0,0,66,65,1,0,0,0,67,70,1,
-        0,0,0,68,66,1,0,0,0,68,69,1,0,0,0,69,72,1,0,0,0,70,68,1,0,0,0,71,
-        50,1,0,0,0,71,57,1,0,0,0,71,64,1,0,0,0,72,3,1,0,0,0,73,76,3,6,3,
-        0,74,76,3,8,4,0,75,73,1,0,0,0,75,74,1,0,0,0,76,5,1,0,0,0,77,79,5,
-        6,0,0,78,80,5,2,0,0,79,78,1,0,0,0,79,80,1,0,0,0,80,82,1,0,0,0,81,
-        83,3,16,8,0,82,81,1,0,0,0,82,83,1,0,0,0,83,85,1,0,0,0,84,86,5,3,
-        0,0,85,84,1,0,0,0,85,86,1,0,0,0,86,7,1,0,0,0,87,88,5,26,0,0,88,89,
-        5,4,0,0,89,90,3,18,9,0,90,9,1,0,0,0,91,92,5,8,0,0,92,96,3,18,9,0,
-        93,95,7,0,0,0,94,93,1,0,0,0,95,98,1,0,0,0,96,94,1,0,0,0,96,97,1,
-        0,0,0,97,102,1,0,0,0,98,96,1,0,0,0,99,101,3,2,1,0,100,99,1,0,0,0,
-        101,104,1,0,0,0,102,100,1,0,0,0,102,103,1,0,0,0,103,106,1,0,0,0,
-        104,102,1,0,0,0,105,107,3,12,6,0,106,105,1,0,0,0,106,107,1,0,0,0,
-        107,108,1,0,0,0,108,109,5,10,0,0,109,11,1,0,0,0,110,114,5,9,0,0,
-        111,113,7,0,0,0,112,111,1,0,0,0,113,116,1,0,0,0,114,112,1,0,0,0,
-        114,115,1,0,0,0,115,120,1,0,0,0,116,114,1,0,0,0,117,119,3,2,1,0,
-        118,117,1,0,0,0,119,122,1,0,0,0,120,118,1,0,0,0,120,121,1,0,0,0,
-        121,13,1,0,0,0,122,120,1,0,0,0,123,124,5,11,0,0,124,126,3,18,9,0,
-        125,127,5,12,0,0,126,125,1,0,0,0,126,127,1,0,0,0,127,131,1,0,0,0,
-        128,130,7,0,0,0,129,128,1,0,0,0,130,133,1,0,0,0,131,129,1,0,0,0,
-        131,132,1,0,0,0,132,137,1,0,0,0,133,131,1,0,0,0,134,136,3,2,1,0,
-        135,134,1,0,0,0,136,139,1,0,0,0,137,135,1,0,0,0,137,138,1,0,0,0,
-        138,140,1,0,0,0,139,137,1,0,0,0,140,141,5,10,0,0,141,15,1,0,0,0,
-        142,147,3,18,9,0,143,144,5,5,0,0,144,146,3,18,9,0,145,143,1,0,0,
-        0,146,149,1,0,0,0,147,145,1,0,0,0,147,148,1,0,0,0,148,17,1,0,0,0,
-        149,147,1,0,0,0,150,151,3,20,10,0,151,19,1,0,0,0,152,157,3,22,11,
-        0,153,154,5,13,0,0,154,156,3,22,11,0,155,153,1,0,0,0,156,159,1,0,
-        0,0,157,155,1,0,0,0,157,158,1,0,0,0,158,21,1,0,0,0,159,157,1,0,0,
-        0,160,165,3,24,12,0,161,162,5,14,0,0,162,164,3,24,12,0,163,161,1,
-        0,0,0,164,167,1,0,0,0,165,163,1,0,0,0,165,166,1,0,0,0,166,23,1,0,
-        0,0,167,165,1,0,0,0,168,173,3,26,13,0,169,170,7,1,0,0,170,172,3,
-        26,13,0,171,169,1,0,0,0,172,175,1,0,0,0,173,171,1,0,0,0,173,174,
-        1,0,0,0,174,25,1,0,0,0,175,173,1,0,0,0,176,181,3,28,14,0,177,178,
-        7,2,0,0,178,180,3,28,14,0,179,177,1,0,0,0,180,183,1,0,0,0,181,179,
-        1,0,0,0,181,182,1,0,0,0,182,27,1,0,0,0,183,181,1,0,0,0,184,189,3,
-        30,15,0,185,186,7,3,0,0,186,188,3,30,15,0,187,185,1,0,0,0,188,191,
-        1,0,0,0,189,187,1,0,0,0,189,190,1,0,0,0,190,29,1,0,0,0,191,189,1,
-        0,0,0,192,197,3,32,16,0,193,194,7,4,0,0,194,196,3,30,15,0,195,193,
-        1,0,0,0,196,199,1,0,0,0,197,195,1,0,0,0,197,198,1,0,0,0,198,31,1,
-        0,0,0,199,197,1,0,0,0,200,201,5,15,0,0,201,204,3,32,16,0,202,204,
-        3,34,17,0,203,200,1,0,0,0,203,202,1,0,0,0,204,33,1,0,0,0,205,220,
-        5,27,0,0,206,220,5,28,0,0,207,209,5,7,0,0,208,210,5,2,0,0,209,208,
-        1,0,0,0,209,210,1,0,0,0,210,212,1,0,0,0,211,213,5,3,0,0,212,211,
-        1,0,0,0,212,213,1,0,0,0,213,220,1,0,0,0,214,220,5,26,0,0,215,216,
-        5,2,0,0,216,217,3,18,9,0,217,218,5,3,0,0,218,220,1,0,0,0,219,205,
-        1,0,0,0,219,206,1,0,0,0,219,207,1,0,0,0,219,214,1,0,0,0,219,215,
-        1,0,0,0,220,35,1,0,0,0,29,40,45,54,61,68,71,75,79,82,85,96,102,106,
-        114,120,126,131,137,147,157,165,173,181,189,197,203,209,212,219
+        22,24,26,28,30,32,34,0,4,1,0,15,16,1,0,17,20,1,0,21,22,1,0,23,24,
+        236,0,45,1,0,0,0,2,71,1,0,0,0,4,75,1,0,0,0,6,77,1,0,0,0,8,87,1,0,
+        0,0,10,91,1,0,0,0,12,110,1,0,0,0,14,123,1,0,0,0,16,142,1,0,0,0,18,
+        150,1,0,0,0,20,152,1,0,0,0,22,160,1,0,0,0,24,168,1,0,0,0,26,176,
+        1,0,0,0,28,184,1,0,0,0,30,192,1,0,0,0,32,203,1,0,0,0,34,219,1,0,
+        0,0,36,40,3,2,1,0,37,39,5,28,0,0,38,37,1,0,0,0,39,42,1,0,0,0,40,
+        38,1,0,0,0,40,41,1,0,0,0,41,44,1,0,0,0,42,40,1,0,0,0,43,36,1,0,0,
+        0,44,47,1,0,0,0,45,43,1,0,0,0,45,46,1,0,0,0,46,48,1,0,0,0,47,45,
+        1,0,0,0,48,49,5,0,0,1,49,1,1,0,0,0,50,54,3,4,2,0,51,53,5,28,0,0,
+        52,51,1,0,0,0,53,56,1,0,0,0,54,52,1,0,0,0,54,55,1,0,0,0,55,72,1,
+        0,0,0,56,54,1,0,0,0,57,61,3,10,5,0,58,60,5,28,0,0,59,58,1,0,0,0,
+        60,63,1,0,0,0,61,59,1,0,0,0,61,62,1,0,0,0,62,72,1,0,0,0,63,61,1,
+        0,0,0,64,68,3,14,7,0,65,67,5,28,0,0,66,65,1,0,0,0,67,70,1,0,0,0,
+        68,66,1,0,0,0,68,69,1,0,0,0,69,72,1,0,0,0,70,68,1,0,0,0,71,50,1,
+        0,0,0,71,57,1,0,0,0,71,64,1,0,0,0,72,3,1,0,0,0,73,76,3,6,3,0,74,
+        76,3,8,4,0,75,73,1,0,0,0,75,74,1,0,0,0,76,5,1,0,0,0,77,79,5,5,0,
+        0,78,80,5,1,0,0,79,78,1,0,0,0,79,80,1,0,0,0,80,82,1,0,0,0,81,83,
+        3,16,8,0,82,81,1,0,0,0,82,83,1,0,0,0,83,85,1,0,0,0,84,86,5,2,0,0,
+        85,84,1,0,0,0,85,86,1,0,0,0,86,7,1,0,0,0,87,88,5,25,0,0,88,89,5,
+        3,0,0,89,90,3,18,9,0,90,9,1,0,0,0,91,92,5,7,0,0,92,96,3,18,9,0,93,
+        95,5,28,0,0,94,93,1,0,0,0,95,98,1,0,0,0,96,94,1,0,0,0,96,97,1,0,
+        0,0,97,102,1,0,0,0,98,96,1,0,0,0,99,101,3,2,1,0,100,99,1,0,0,0,101,
+        104,1,0,0,0,102,100,1,0,0,0,102,103,1,0,0,0,103,106,1,0,0,0,104,
+        102,1,0,0,0,105,107,3,12,6,0,106,105,1,0,0,0,106,107,1,0,0,0,107,
+        108,1,0,0,0,108,109,5,9,0,0,109,11,1,0,0,0,110,114,5,8,0,0,111,113,
+        5,28,0,0,112,111,1,0,0,0,113,116,1,0,0,0,114,112,1,0,0,0,114,115,
+        1,0,0,0,115,120,1,0,0,0,116,114,1,0,0,0,117,119,3,2,1,0,118,117,
+        1,0,0,0,119,122,1,0,0,0,120,118,1,0,0,0,120,121,1,0,0,0,121,13,1,
+        0,0,0,122,120,1,0,0,0,123,124,5,10,0,0,124,126,3,18,9,0,125,127,
+        5,11,0,0,126,125,1,0,0,0,126,127,1,0,0,0,127,131,1,0,0,0,128,130,
+        5,28,0,0,129,128,1,0,0,0,130,133,1,0,0,0,131,129,1,0,0,0,131,132,
+        1,0,0,0,132,137,1,0,0,0,133,131,1,0,0,0,134,136,3,2,1,0,135,134,
+        1,0,0,0,136,139,1,0,0,0,137,135,1,0,0,0,137,138,1,0,0,0,138,140,
+        1,0,0,0,139,137,1,0,0,0,140,141,5,9,0,0,141,15,1,0,0,0,142,147,3,
+        18,9,0,143,144,5,4,0,0,144,146,3,18,9,0,145,143,1,0,0,0,146,149,
+        1,0,0,0,147,145,1,0,0,0,147,148,1,0,0,0,148,17,1,0,0,0,149,147,1,
+        0,0,0,150,151,3,20,10,0,151,19,1,0,0,0,152,157,3,22,11,0,153,154,
+        5,12,0,0,154,156,3,22,11,0,155,153,1,0,0,0,156,159,1,0,0,0,157,155,
+        1,0,0,0,157,158,1,0,0,0,158,21,1,0,0,0,159,157,1,0,0,0,160,165,3,
+        24,12,0,161,162,5,13,0,0,162,164,3,24,12,0,163,161,1,0,0,0,164,167,
+        1,0,0,0,165,163,1,0,0,0,165,166,1,0,0,0,166,23,1,0,0,0,167,165,1,
+        0,0,0,168,173,3,26,13,0,169,170,7,0,0,0,170,172,3,26,13,0,171,169,
+        1,0,0,0,172,175,1,0,0,0,173,171,1,0,0,0,173,174,1,0,0,0,174,25,1,
+        0,0,0,175,173,1,0,0,0,176,181,3,28,14,0,177,178,7,1,0,0,178,180,
+        3,28,14,0,179,177,1,0,0,0,180,183,1,0,0,0,181,179,1,0,0,0,181,182,
+        1,0,0,0,182,27,1,0,0,0,183,181,1,0,0,0,184,189,3,30,15,0,185,186,
+        7,2,0,0,186,188,3,30,15,0,187,185,1,0,0,0,188,191,1,0,0,0,189,187,
+        1,0,0,0,189,190,1,0,0,0,190,29,1,0,0,0,191,189,1,0,0,0,192,197,3,
+        32,16,0,193,194,7,3,0,0,194,196,3,30,15,0,195,193,1,0,0,0,196,199,
+        1,0,0,0,197,195,1,0,0,0,197,198,1,0,0,0,198,31,1,0,0,0,199,197,1,
+        0,0,0,200,201,5,14,0,0,201,204,3,32,16,0,202,204,3,34,17,0,203,200,
+        1,0,0,0,203,202,1,0,0,0,204,33,1,0,0,0,205,220,5,26,0,0,206,220,
+        5,27,0,0,207,209,5,6,0,0,208,210,5,1,0,0,209,208,1,0,0,0,209,210,
+        1,0,0,0,210,212,1,0,0,0,211,213,5,2,0,0,212,211,1,0,0,0,212,213,
+        1,0,0,0,213,220,1,0,0,0,214,220,5,25,0,0,215,216,5,1,0,0,216,217,
+        3,18,9,0,217,218,5,2,0,0,218,220,1,0,0,0,219,205,1,0,0,0,219,206,
+        1,0,0,0,219,207,1,0,0,0,219,214,1,0,0,0,219,215,1,0,0,0,220,35,1,
+        0,0,0,29,40,45,54,61,68,71,75,79,82,85,96,102,106,114,120,126,131,
+        137,147,157,165,173,181,189,197,203,209,212,219
     ]
 
 class MiniRubyParser ( Parser ):
@@ -100,17 +100,17 @@ class MiniRubyParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "';'", "'('", "')'", "'='", "','", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "'!'", "'=='", "'!='", "'<'", "'<='", "'>'", "'>='", 
-                     "'+'", "'-'", "'*'", "'/'" ]
+    literalNames = [ "<INVALID>", "'('", "')'", "'='", "','", "'puts'", 
+                     "<INVALID>", "'if'", "'else'", "'end'", "'while'", 
+                     "'do'", "<INVALID>", "<INVALID>", "'!'", "'=='", "'!='", 
+                     "'<'", "'<='", "'>'", "'>='", "'+'", "'-'", "'*'", 
+                     "'/'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "PUTS", "GETS", "IF", "ELSE", 
-                      "END", "WHILE", "DO", "OR", "AND", "NOT", "EQ", "NEQ", 
-                      "LT", "LE", "GT", "GE", "PLUS", "MINUS", "MUL", "DIV", 
-                      "ID", "NUMBER", "STRING", "NEWLINE", "WS", "LINE_COMMENT" ]
+                      "<INVALID>", "PUTS", "GETS", "IF", "ELSE", "END", 
+                      "WHILE", "DO", "OR", "AND", "NOT", "EQ", "NEQ", "LT", 
+                      "LE", "GT", "GE", "PLUS", "MINUS", "MUL", "DIV", "ID", 
+                      "NUMBER", "STRING", "NEWLINE", "WS", "LINE_COMMENT" ]
 
     RULE_prog = 0
     RULE_stmt = 1
@@ -141,33 +141,32 @@ class MiniRubyParser ( Parser ):
     T__1=2
     T__2=3
     T__3=4
-    T__4=5
-    PUTS=6
-    GETS=7
-    IF=8
-    ELSE=9
-    END=10
-    WHILE=11
-    DO=12
-    OR=13
-    AND=14
-    NOT=15
-    EQ=16
-    NEQ=17
-    LT=18
-    LE=19
-    GT=20
-    GE=21
-    PLUS=22
-    MINUS=23
-    MUL=24
-    DIV=25
-    ID=26
-    NUMBER=27
-    STRING=28
-    NEWLINE=29
-    WS=30
-    LINE_COMMENT=31
+    PUTS=5
+    GETS=6
+    IF=7
+    ELSE=8
+    END=9
+    WHILE=10
+    DO=11
+    OR=12
+    AND=13
+    NOT=14
+    EQ=15
+    NEQ=16
+    LT=17
+    LE=18
+    GT=19
+    GE=20
+    PLUS=21
+    MINUS=22
+    MUL=23
+    DIV=24
+    ID=25
+    NUMBER=26
+    STRING=27
+    NEWLINE=28
+    WS=29
+    LINE_COMMENT=30
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -225,20 +224,15 @@ class MiniRubyParser ( Parser ):
             self.state = 45
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 67111232) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 33555616) != 0):
                 self.state = 36
                 self.stmt()
                 self.state = 40
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while _la==1 or _la==29:
+                while _la==28:
                     self.state = 37
-                    _la = self._input.LA(1)
-                    if not(_la==1 or _la==29):
-                        self._errHandler.recoverInline(self)
-                    else:
-                        self._errHandler.reportMatch(self)
-                        self.consume()
+                    self.match(MiniRubyParser.NEWLINE)
                     self.state = 42
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
@@ -301,12 +295,11 @@ class MiniRubyParser ( Parser ):
 
         localctx = MiniRubyParser.StmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_stmt)
-        self._la = 0 # Token type
         try:
             self.state = 71
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [6, 26]:
+            if token in [5, 25]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 50
                 self.simpleStmt()
@@ -316,18 +309,13 @@ class MiniRubyParser ( Parser ):
                 while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                     if _alt==1:
                         self.state = 51
-                        _la = self._input.LA(1)
-                        if not(_la==1 or _la==29):
-                            self._errHandler.recoverInline(self)
-                        else:
-                            self._errHandler.reportMatch(self)
-                            self.consume() 
+                        self.match(MiniRubyParser.NEWLINE) 
                     self.state = 56
                     self._errHandler.sync(self)
                     _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
 
                 pass
-            elif token in [8]:
+            elif token in [7]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 57
                 self.ifStmt()
@@ -337,18 +325,13 @@ class MiniRubyParser ( Parser ):
                 while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                     if _alt==1:
                         self.state = 58
-                        _la = self._input.LA(1)
-                        if not(_la==1 or _la==29):
-                            self._errHandler.recoverInline(self)
-                        else:
-                            self._errHandler.reportMatch(self)
-                            self.consume() 
+                        self.match(MiniRubyParser.NEWLINE) 
                     self.state = 63
                     self._errHandler.sync(self)
                     _alt = self._interp.adaptivePredict(self._input,3,self._ctx)
 
                 pass
-            elif token in [11]:
+            elif token in [10]:
                 self.enterOuterAlt(localctx, 3)
                 self.state = 64
                 self.whileStmt()
@@ -358,12 +341,7 @@ class MiniRubyParser ( Parser ):
                 while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                     if _alt==1:
                         self.state = 65
-                        _la = self._input.LA(1)
-                        if not(_la==1 or _la==29):
-                            self._errHandler.recoverInline(self)
-                        else:
-                            self._errHandler.reportMatch(self)
-                            self.consume() 
+                        self.match(MiniRubyParser.NEWLINE) 
                     self.state = 70
                     self._errHandler.sync(self)
                     _alt = self._interp.adaptivePredict(self._input,4,self._ctx)
@@ -418,12 +396,12 @@ class MiniRubyParser ( Parser ):
             self.state = 75
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [6]:
+            if token in [5]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 73
                 self.printStmt()
                 pass
-            elif token in [26]:
+            elif token in [25]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 74
                 self.assignStmt()
@@ -482,7 +460,7 @@ class MiniRubyParser ( Parser ):
             la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
             if la_ == 1:
                 self.state = 78
-                self.match(MiniRubyParser.T__1)
+                self.match(MiniRubyParser.T__0)
 
 
             self.state = 82
@@ -496,9 +474,9 @@ class MiniRubyParser ( Parser ):
             self.state = 85
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==3:
+            if _la==2:
                 self.state = 84
-                self.match(MiniRubyParser.T__2)
+                self.match(MiniRubyParser.T__1)
 
 
         except RecognitionException as re:
@@ -547,7 +525,7 @@ class MiniRubyParser ( Parser ):
             self.state = 87
             self.match(MiniRubyParser.ID)
             self.state = 88
-            self.match(MiniRubyParser.T__3)
+            self.match(MiniRubyParser.T__2)
             self.state = 89
             self.expr()
         except RecognitionException as re:
@@ -576,6 +554,12 @@ class MiniRubyParser ( Parser ):
         def END(self):
             return self.getToken(MiniRubyParser.END, 0)
 
+        def NEWLINE(self, i:int=None):
+            if i is None:
+                return self.getTokens(MiniRubyParser.NEWLINE)
+            else:
+                return self.getToken(MiniRubyParser.NEWLINE, i)
+
         def stmt(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(MiniRubyParser.StmtContext)
@@ -586,12 +570,6 @@ class MiniRubyParser ( Parser ):
         def elsePart(self):
             return self.getTypedRuleContext(MiniRubyParser.ElsePartContext,0)
 
-
-        def NEWLINE(self, i:int=None):
-            if i is None:
-                return self.getTokens(MiniRubyParser.NEWLINE)
-            else:
-                return self.getToken(MiniRubyParser.NEWLINE, i)
 
         def getRuleIndex(self):
             return MiniRubyParser.RULE_ifStmt
@@ -621,14 +599,9 @@ class MiniRubyParser ( Parser ):
             self.state = 96
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==1 or _la==29:
+            while _la==28:
                 self.state = 93
-                _la = self._input.LA(1)
-                if not(_la==1 or _la==29):
-                    self._errHandler.recoverInline(self)
-                else:
-                    self._errHandler.reportMatch(self)
-                    self.consume()
+                self.match(MiniRubyParser.NEWLINE)
                 self.state = 98
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
@@ -636,7 +609,7 @@ class MiniRubyParser ( Parser ):
             self.state = 102
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 67111232) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 33555616) != 0):
                 self.state = 99
                 self.stmt()
                 self.state = 104
@@ -646,7 +619,7 @@ class MiniRubyParser ( Parser ):
             self.state = 106
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==9:
+            if _la==8:
                 self.state = 105
                 self.elsePart()
 
@@ -672,18 +645,18 @@ class MiniRubyParser ( Parser ):
         def ELSE(self):
             return self.getToken(MiniRubyParser.ELSE, 0)
 
+        def NEWLINE(self, i:int=None):
+            if i is None:
+                return self.getTokens(MiniRubyParser.NEWLINE)
+            else:
+                return self.getToken(MiniRubyParser.NEWLINE, i)
+
         def stmt(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(MiniRubyParser.StmtContext)
             else:
                 return self.getTypedRuleContext(MiniRubyParser.StmtContext,i)
 
-
-        def NEWLINE(self, i:int=None):
-            if i is None:
-                return self.getTokens(MiniRubyParser.NEWLINE)
-            else:
-                return self.getToken(MiniRubyParser.NEWLINE, i)
 
         def getRuleIndex(self):
             return MiniRubyParser.RULE_elsePart
@@ -711,14 +684,9 @@ class MiniRubyParser ( Parser ):
             self.state = 114
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==1 or _la==29:
+            while _la==28:
                 self.state = 111
-                _la = self._input.LA(1)
-                if not(_la==1 or _la==29):
-                    self._errHandler.recoverInline(self)
-                else:
-                    self._errHandler.reportMatch(self)
-                    self.consume()
+                self.match(MiniRubyParser.NEWLINE)
                 self.state = 116
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
@@ -726,7 +694,7 @@ class MiniRubyParser ( Parser ):
             self.state = 120
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 67111232) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 33555616) != 0):
                 self.state = 117
                 self.stmt()
                 self.state = 122
@@ -762,18 +730,18 @@ class MiniRubyParser ( Parser ):
         def DO(self):
             return self.getToken(MiniRubyParser.DO, 0)
 
+        def NEWLINE(self, i:int=None):
+            if i is None:
+                return self.getTokens(MiniRubyParser.NEWLINE)
+            else:
+                return self.getToken(MiniRubyParser.NEWLINE, i)
+
         def stmt(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(MiniRubyParser.StmtContext)
             else:
                 return self.getTypedRuleContext(MiniRubyParser.StmtContext,i)
 
-
-        def NEWLINE(self, i:int=None):
-            if i is None:
-                return self.getTokens(MiniRubyParser.NEWLINE)
-            else:
-                return self.getToken(MiniRubyParser.NEWLINE, i)
 
         def getRuleIndex(self):
             return MiniRubyParser.RULE_whileStmt
@@ -803,7 +771,7 @@ class MiniRubyParser ( Parser ):
             self.state = 126
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==12:
+            if _la==11:
                 self.state = 125
                 self.match(MiniRubyParser.DO)
 
@@ -811,14 +779,9 @@ class MiniRubyParser ( Parser ):
             self.state = 131
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==1 or _la==29:
+            while _la==28:
                 self.state = 128
-                _la = self._input.LA(1)
-                if not(_la==1 or _la==29):
-                    self._errHandler.recoverInline(self)
-                else:
-                    self._errHandler.reportMatch(self)
-                    self.consume()
+                self.match(MiniRubyParser.NEWLINE)
                 self.state = 133
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
@@ -826,7 +789,7 @@ class MiniRubyParser ( Parser ):
             self.state = 137
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 67111232) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 33555616) != 0):
                 self.state = 134
                 self.stmt()
                 self.state = 139
@@ -884,9 +847,9 @@ class MiniRubyParser ( Parser ):
             self.state = 147
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==5:
+            while _la==4:
                 self.state = 143
-                self.match(MiniRubyParser.T__4)
+                self.match(MiniRubyParser.T__3)
                 self.state = 144
                 self.expr()
                 self.state = 149
@@ -990,7 +953,7 @@ class MiniRubyParser ( Parser ):
             self.state = 157
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==13:
+            while _la==12:
                 self.state = 153
                 self.match(MiniRubyParser.OR)
                 self.state = 154
@@ -1054,7 +1017,7 @@ class MiniRubyParser ( Parser ):
             self.state = 165
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==14:
+            while _la==13:
                 self.state = 161
                 self.match(MiniRubyParser.AND)
                 self.state = 162
@@ -1124,10 +1087,10 @@ class MiniRubyParser ( Parser ):
             self.state = 173
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==16 or _la==17:
+            while _la==15 or _la==16:
                 self.state = 169
                 _la = self._input.LA(1)
-                if not(_la==16 or _la==17):
+                if not(_la==15 or _la==16):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
@@ -1211,10 +1174,10 @@ class MiniRubyParser ( Parser ):
             self.state = 181
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 3932160) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1966080) != 0):
                 self.state = 177
                 _la = self._input.LA(1)
-                if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 3932160) != 0)):
+                if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 1966080) != 0)):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
@@ -1286,10 +1249,10 @@ class MiniRubyParser ( Parser ):
             self.state = 189
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==22 or _la==23:
+            while _la==21 or _la==22:
                 self.state = 185
                 _la = self._input.LA(1)
-                if not(_la==22 or _la==23):
+                if not(_la==21 or _la==22):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
@@ -1369,7 +1332,7 @@ class MiniRubyParser ( Parser ):
                 if _alt==1:
                     self.state = 193
                     _la = self._input.LA(1)
-                    if not(_la==24 or _la==25):
+                    if not(_la==23 or _la==24):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
@@ -1429,14 +1392,14 @@ class MiniRubyParser ( Parser ):
             self.state = 203
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [15]:
+            if token in [14]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 200
                 self.match(MiniRubyParser.NOT)
                 self.state = 201
                 self.unaryExpr()
                 pass
-            elif token in [2, 7, 26, 27, 28]:
+            elif token in [1, 6, 25, 26, 27]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 202
                 self.factor()
@@ -1499,26 +1462,26 @@ class MiniRubyParser ( Parser ):
             self.state = 219
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [27]:
+            if token in [26]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 205
                 self.match(MiniRubyParser.NUMBER)
                 pass
-            elif token in [28]:
+            elif token in [27]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 206
                 self.match(MiniRubyParser.STRING)
                 pass
-            elif token in [7]:
+            elif token in [6]:
                 self.enterOuterAlt(localctx, 3)
                 self.state = 207
                 self.match(MiniRubyParser.GETS)
                 self.state = 209
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la==2:
+                if _la==1:
                     self.state = 208
-                    self.match(MiniRubyParser.T__1)
+                    self.match(MiniRubyParser.T__0)
 
 
                 self.state = 212
@@ -1526,23 +1489,23 @@ class MiniRubyParser ( Parser ):
                 la_ = self._interp.adaptivePredict(self._input,27,self._ctx)
                 if la_ == 1:
                     self.state = 211
-                    self.match(MiniRubyParser.T__2)
+                    self.match(MiniRubyParser.T__1)
 
 
                 pass
-            elif token in [26]:
+            elif token in [25]:
                 self.enterOuterAlt(localctx, 4)
                 self.state = 214
                 self.match(MiniRubyParser.ID)
                 pass
-            elif token in [2]:
+            elif token in [1]:
                 self.enterOuterAlt(localctx, 5)
                 self.state = 215
-                self.match(MiniRubyParser.T__1)
+                self.match(MiniRubyParser.T__0)
                 self.state = 216
                 self.expr()
                 self.state = 217
-                self.match(MiniRubyParser.T__2)
+                self.match(MiniRubyParser.T__1)
                 pass
             else:
                 raise NoViableAltException(self)
