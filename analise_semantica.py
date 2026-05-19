@@ -115,35 +115,6 @@ class MiniRubySemanticoListenerImpl(MiniRubyListener):
                                                 return True
         return False
 
-    def _atribuicao_eh_zero(self, expr_ctx):
-        or_ctx = expr_ctx.orExpr()
-        if or_ctx:
-            and_count = len(or_ctx.andExpr())
-            if and_count == 1:
-                and_ctx = or_ctx.andExpr(0)
-                eq_count = len(and_ctx.eqExpr())
-                if eq_count == 1:
-                    eq_ctx = and_ctx.eqExpr(0)
-                    rel_count = len(eq_ctx.relExpr())
-                    if rel_count == 1:
-                        rel_ctx = eq_ctx.relExpr(0)
-                        add_count = len(rel_ctx.addExpr())
-                        if add_count == 1:
-                            add_ctx = rel_ctx.addExpr(0)
-                            mul_count = len(add_ctx.mulExpr())
-                            if mul_count == 1:
-                                mul_ctx = add_ctx.mulExpr(0)
-                                unary = mul_ctx.unaryExpr()
-                                if unary and hasattr(unary, 'factor'):
-                                    factor_ctx = unary.factor()
-                                    if factor_ctx:
-                                        if factor_ctx.NUMBER():
-                                            try:
-                                                return float(factor_ctx.NUMBER().getText()) == 0.0
-                                            except ValueError:
-                                                pass
-        return False
-
     # ============================================================
     # Expressões: exit handlers (pós-ordem para propagação de tipos)
     # ============================================================
@@ -492,7 +463,7 @@ class MiniRubySemanticoListenerImpl(MiniRubyListener):
         tipo_expr = expr_ctx.type_name if hasattr(expr_ctx, 'type_name') else "ERRO_TIPO"
         self.logger.info(f"Atribuição: {nome_var} = [expr tipo: {tipo_expr}]")
         if not tipo_expr.startswith("ERRO_"):
-            eh_zero = self._atribuicao_eh_zero(expr_ctx)
+            eh_zero = self._expr_eh_zero(expr_ctx)
             self._registrar_variavel(nome_var, tipo_expr, linha, coluna, atribuida_zero=eh_zero)
 
     def exitPrintStmt(self, ctx: MiniRubyParser.PrintStmtContext):
