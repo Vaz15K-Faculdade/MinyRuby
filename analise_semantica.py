@@ -10,9 +10,11 @@ class MiniRubySemanticoListenerImpl(MiniRubyListener):
         self.logger = logging.getLogger(self.__class__.__name__)
         self.escopo_atual = {}
         self.variaveis_declaradas_globalmente = set()
+        self._constantes_zero = set()
         self.ast_anotada = None
 
-    def _registrar_variavel(self, nome_var: str, tipo_var: str, linha: int, coluna: int):
+    def _registrar_variavel(self, nome_var: str, tipo_var: str, linha: int, coluna: int,
+                            atribuida_zero: bool = False):
         if nome_var in self.escopo_atual:
             info = self.escopo_atual[nome_var]
             self.logger.info(
@@ -32,6 +34,10 @@ class MiniRubySemanticoListenerImpl(MiniRubyListener):
             }
         self.variaveis_declaradas_globalmente.add(nome_var)
         self.escopo_atual[nome_var]["usada_como_alvo"] = True
+        if atribuida_zero:
+            self._constantes_zero.add(nome_var)
+        else:
+            self._constantes_zero.discard(nome_var)
 
     def _verificar_uso_variavel(self, nome_var: str, ctx):
         linha = ctx.start.line
@@ -60,29 +66,12 @@ class MiniRubySemanticoListenerImpl(MiniRubyListener):
                             return float(factor_ctx.NUMBER().getText()) == 0.0
                         except ValueError:
                             pass
+                    elif factor_ctx.ID():
+                        nome = factor_ctx.ID().getText()
+                        if nome in self._constantes_zero:
+                            return True
                     elif factor_ctx.expr():
-                        inner = factor_ctx.expr()
-                        if hasattr(inner, 'orExpr') and inner.orExpr():
-                            or_ctx = inner.orExpr()
-                            if (hasattr(or_ctx, 'andExpr')
-                                    and or_ctx.andExpr(0)
-                                    and hasattr(or_ctx.andExpr(0), 'eqExpr')):
-                                eq = or_ctx.andExpr(0).eqExpr(0)
-                                if (hasattr(eq, 'relExpr')
-                                        and eq.relExpr(0)
-                                        and hasattr(eq.relExpr(0), 'addExpr')):
-                                    add = eq.relExpr(0).addExpr(0)
-                                    if (hasattr(add, 'mulExpr')
-                                            and add.mulExpr(0)
-                                            and hasattr(add.mulExpr(0), 'unaryExpr')):
-                                        unary = add.mulExpr(0).unaryExpr()
-                                        if (hasattr(unary, 'factor')
-                                                and unary.factor()
-                                                and unary.factor().NUMBER()):
-                                            try:
-                                                return float(unary.factor().NUMBER().getText()) == 0.0
-                                            except ValueError:
-                                                pass
+                        return self._expr_eh_zero(factor_ctx.expr())
         if hasattr(ctx, 'mulExpr'):
             right = ctx.mulExpr(0)
             if right:
@@ -92,6 +81,68 @@ class MiniRubySemanticoListenerImpl(MiniRubyListener):
             return float(texto) == 0.0
         except ValueError:
             return False
+
+    def _expr_eh_zero(self, expr_ctx):
+        or_ctx = expr_ctx.orExpr()
+        if or_ctx:
+            and_count = len(or_ctx.andExpr())
+            if and_count == 1:
+                and_ctx = or_ctx.andExpr(0)
+                eq_count = len(and_ctx.eqExpr())
+                if eq_count == 1:
+                    eq_ctx = and_ctx.eqExpr(0)
+                    rel_count = len(eq_ctx.relExpr())
+                    if rel_count == 1:
+                        rel_ctx = eq_ctx.relExpr(0)
+                        add_count = len(rel_ctx.addExpr())
+                        if add_count == 1:
+                            add_ctx = rel_ctx.addExpr(0)
+                            mul_count = len(add_ctx.mulExpr())
+                            if mul_count == 1:
+                                mul_ctx = add_ctx.mulExpr(0)
+                                unary = mul_ctx.unaryExpr()
+                                if unary and hasattr(unary, 'factor'):
+                                    factor_ctx = unary.factor()
+                                    if factor_ctx:
+                                        if factor_ctx.NUMBER():
+                                            try:
+                                                return float(factor_ctx.NUMBER().getText()) == 0.0
+                                            except ValueError:
+                                                pass
+                                        elif factor_ctx.ID():
+                                            nome = factor_ctx.ID().getText()
+                                            if nome in self._constantes_zero:
+                                                return True
+        return False
+
+    def _atribuicao_eh_zero(self, expr_ctx):
+        or_ctx = expr_ctx.orExpr()
+        if or_ctx:
+            and_count = len(or_ctx.andExpr())
+            if and_count == 1:
+                and_ctx = or_ctx.andExpr(0)
+                eq_count = len(and_ctx.eqExpr())
+                if eq_count == 1:
+                    eq_ctx = and_ctx.eqExpr(0)
+                    rel_count = len(eq_ctx.relExpr())
+                    if rel_count == 1:
+                        rel_ctx = eq_ctx.relExpr(0)
+                        add_count = len(rel_ctx.addExpr())
+                        if add_count == 1:
+                            add_ctx = rel_ctx.addExpr(0)
+                            mul_count = len(add_ctx.mulExpr())
+                            if mul_count == 1:
+                                mul_ctx = add_ctx.mulExpr(0)
+                                unary = mul_ctx.unaryExpr()
+                                if unary and hasattr(unary, 'factor'):
+                                    factor_ctx = unary.factor()
+                                    if factor_ctx:
+                                        if factor_ctx.NUMBER():
+                                            try:
+                                                return float(factor_ctx.NUMBER().getText()) == 0.0
+                                            except ValueError:
+                                                pass
+        return False
 
     # ============================================================
     # Expressões: exit handlers (pós-ordem para propagação de tipos)
@@ -441,7 +492,8 @@ class MiniRubySemanticoListenerImpl(MiniRubyListener):
         tipo_expr = expr_ctx.type_name if hasattr(expr_ctx, 'type_name') else "ERRO_TIPO"
         self.logger.info(f"Atribuição: {nome_var} = [expr tipo: {tipo_expr}]")
         if not tipo_expr.startswith("ERRO_"):
-            self._registrar_variavel(nome_var, tipo_expr, linha, coluna)
+            eh_zero = self._atribuicao_eh_zero(expr_ctx)
+            self._registrar_variavel(nome_var, tipo_expr, linha, coluna, atribuida_zero=eh_zero)
 
     def exitPrintStmt(self, ctx: MiniRubyParser.PrintStmtContext):
         self.logger.info(f"exitPrintStmt: '{ctx.getText()}'")
