@@ -126,7 +126,11 @@ class MiniRubySemanticoListenerImpl(MiniRubyListener):
         elif ctx.STRING():
             ctx.type_name = "STRING"
         elif ctx.GETS():
-            ctx.type_name = "NUMERO"
+            # gets.chomp lê texto (STRING); gets lê número (NUMERO)
+            if ctx.GETS().getText() == "gets.chomp":
+                ctx.type_name = "STRING"
+            else:
+                ctx.type_name = "NUMERO"
         elif ctx.ID():
             nome_var = ctx.ID().getText()
             tipo = self._verificar_uso_variavel(nome_var, ctx)
