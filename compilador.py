@@ -1,18 +1,22 @@
 # compilador.py
 import logging
 import os
-from erro import Erro
+
 from analise_lexica import AnaliseLexica
-from analise_sintatica import AnaliseSintatica
 from analise_semantica import AnaliseSemantica
+from analise_sintatica import AnaliseSintatica
+from erro import Erro
+from geracao_birl import GeracaoBIRL
 from geracao_tac import GeracaoTAC
-from geracao_llvm import GeracaoLLVM
+
 
 class Compilador:
     def __init__(self, nome_arquivo_fonte: str, diretorio_saida: str = "out"):
         self.nome_arquivo_fonte = nome_arquivo_fonte
         self.diretorio_saida = diretorio_saida
-        self.logger = logging.getLogger(self.__class__.__name__) # Logger para a classe Compilador
+        self.logger = logging.getLogger(
+            self.__class__.__name__
+        )  # Logger para a classe Compilador
         self.erro_handler = Erro()
 
         # Criar o diretório de saída caso não exista
@@ -23,16 +27,20 @@ class Compilador:
         self.analise_sintatica_mod = AnaliseSintatica(self.erro_handler)
         self.analise_semantica_mod = AnaliseSemantica(self.erro_handler)
         self.geracao_tac_mod = GeracaoTAC(self.erro_handler)
-        self.geracao_llvm_mod = GeracaoLLVM(self.erro_handler)
+        self.geracao_birl_mod = GeracaoBIRL(self.erro_handler)
 
-        self.logger.info(f"Compilador MiniRuby inicializado para o arquivo: {nome_arquivo_fonte}")
+        self.logger.info(
+            f"Compilador MiniRuby inicializado para o arquivo: {nome_arquivo_fonte}"
+        )
 
     def compilar(self):
         self.logger.info(f"--- Iniciando compilação de {self.nome_arquivo_fonte} ---")
 
         # Fase 1: Análise Léxica
         self.logger.info("--- FASE: Análise Léxica ---")
-        tokens_log, token_stream = self.analise_lexica_mod.executarAnaliseLexica(self.nome_arquivo_fonte)
+        tokens_log, token_stream = self.analise_lexica_mod.executarAnaliseLexica(
+            self.nome_arquivo_fonte
+        )
         if self.erro_handler.tem_erros_lexicos or not token_stream:
             self.logger.error("Compilação interrompida devido a erros léxicos.")
             return False
@@ -41,13 +49,17 @@ class Compilador:
         self.logger.info("--- FASE: Análise Sintática ---")
         ast = self.analise_sintatica_mod.executarAnaliseSintatica(token_stream)
         if self.erro_handler.houve_erro_fatal() or not ast:
-            self.logger.error("Compilação interrompida devido a erros em fases anteriores (Léxico/Sintático).")
+            self.logger.error(
+                "Compilação interrompida devido a erros em fases anteriores (Léxico/Sintático)."
+            )
             return False
         # Exportar AST (opcional, mas útil para depuração)
-        nome_base = os.path.basename(self.nome_arquivo_fonte).rsplit('.', 1)[0]
+        nome_base = os.path.basename(self.nome_arquivo_fonte).rsplit(".", 1)[0]
         caminho_base_saida = os.path.join(self.diretorio_saida, nome_base)
         self.analise_sintatica_mod.exportarAST_DOT(ast, caminho_base_saida + ".dot")
-        self.analise_sintatica_mod.exportarAST_SVG(caminho_base_saida + ".dot", caminho_base_saida + ".svg")
+        self.analise_sintatica_mod.exportarAST_SVG(
+            caminho_base_saida + ".dot", caminho_base_saida + ".svg"
+        )
 
         # Fase 3: Análise Semântica
         self.logger.info("--- FASE: Análise Semântica ---")
@@ -60,22 +72,28 @@ class Compilador:
         self.logger.info("--- FASE: Geração de Código de Três Endereços (TAC) ---")
         codigo_tac = self.geracao_tac_mod.gerarCodigoTAC(ast_anotada)
         if self.erro_handler.tem_erros_tac or not codigo_tac:
-            self.logger.error("Compilação interrompida devido a erros na geração do TAC.")
+            self.logger.error(
+                "Compilação interrompida devido a erros na geração do TAC."
+            )
             return False
 
-        # Fase 5: Geração de Código LLVM
-        self.logger.info("--- FASE: Geração de Código LLVM IR ---")
-        codigo_llvm = self.geracao_llvm_mod.gerarCodigoLLVM(codigo_tac)
-        if self.erro_handler.tem_erros_llvm or not codigo_llvm:
-            self.logger.error("Compilação interrompida devido a erros na geração do LLVM IR.")
+        # Fase 5: Geração de Código BIRL (linguagem de alto nível de destino)
+        self.logger.info("--- FASE: Geração de Código BIRL ---")
+        codigo_birl = self.geracao_birl_mod.gerarCodigoBIRL(ast_anotada)
+        if not codigo_birl:
+            self.logger.error(
+                "Compilação interrompida devido a erros na geração do código BIRL."
+            )
             return False
 
         self.logger.info("--- Compilação concluída com sucesso! ---")
         try:
-            with open(caminho_base_saida + ".ll", "w", encoding='utf-8') as f:
-                f.write(codigo_llvm)
-            self.logger.info(f"Código LLVM IR salvo em: {caminho_base_saida}.ll")
+            with open(caminho_base_saida + ".birl", "w", encoding="utf-8") as f:
+                f.write(codigo_birl)
+            self.logger.info(f"Código BIRL salvo em: {caminho_base_saida}.birl")
         except IOError as e:
-            self.erro_handler.registrar_erro("Compilador",0,0,f"Erro ao salvar arquivo LLVM: {e}", "GERAL")
+            self.erro_handler.registrar_erro(
+                "Compilador", 0, 0, f"Erro ao salvar arquivo BIRL: {e}", "GERAL"
+            )
             return False
         return True
